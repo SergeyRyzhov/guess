@@ -1,0 +1,5 @@
+audio(data-bind="audio: element")
+  source(data-bind="attr: { src: mediaUrl, type: mediaType }")
+  |labels.game.errors.notSupported
+  a(data-bind="attr: { href: mediaUrl }") labels.game.audio.download
+button(data-bind="click: play") labels.game.audio.play

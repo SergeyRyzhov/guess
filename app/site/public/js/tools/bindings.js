@@ -30,4 +30,13 @@ define([
       ko.bindingHandlers.visible.update(element, function () { return !value; });
     }
   };
+
+  ko.bindingHandlers.audio = {
+    init: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
+        valueAccessor()(element);
+    },
+    update: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
+        valueAccessor()(element);
+    }
+};
 });
