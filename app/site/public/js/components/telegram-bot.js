@@ -11,8 +11,8 @@ define([
 	'json!/api/telegram/users'
 ], function (ko, _, storage, constants, localization, amplify, moment, responsejs, token, users) {
 	return function () {
-		token = token.token;
-		users = users.users;
+		//token = token.token;
+		//users = users.users;
 		
 		function getToken(elementName) {
 			var element = document.getElementById(elementName);

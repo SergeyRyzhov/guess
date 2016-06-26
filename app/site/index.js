@@ -14,7 +14,7 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 // uncomment after placing your favicon in /public
-app.use(favicon(path.join(__dirname, 'public', 'img', 'favicon.ico')));
+//app.use(favicon(path.join(__dirname, 'public', 'img', 'favicon.ico')));
 app.use(webLogger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
