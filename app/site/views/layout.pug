@@ -34,9 +34,9 @@ html(lang=culture)
           //     i.material-icons search
           //   .mdl-textfield__expandable-holder
           //     input#fixed-header-drawer-exp.mdl-textfield__input(type='text', name='search', placeholder= labels.search.title)
-        .mdl-layout__drawer
-          span.mdl-layout-title=labels.site.shortTitle
-          - var menuAttributes = {'data-bind': {component: {name: 'menu', params: labels.menu }}};
-          div&attributes(menuAttributes)
-        main.mdl-layout__content
-          block content
+      .mdl-layout__drawer
+        span.mdl-layout-title=labels.site.shortTitle
+        - var menuAttributes = {'data-bind': {component: {name: 'menu', params: labels.menu }}};
+        div&attributes(menuAttributes)
+      main.mdl-layout__content
+        block content
