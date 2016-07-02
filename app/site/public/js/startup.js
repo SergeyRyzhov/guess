@@ -22,7 +22,7 @@ requirejs.config({
         propertyParser : '../vendor/js/propertyParser',
         markdownConverter : '../vendor/js/Markdown.Converter',
         
-        
+        socketio: '../socket.io/socket.io.js',
         underscore: '../vendor/js/underscore',
         knockout: '../vendor/js/knockout-3.4.0',
         jquery: '../vendor/js/jquery-2.1.4',

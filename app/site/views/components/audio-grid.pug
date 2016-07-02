@@ -1,0 +1,5 @@
+div(data-bind="foreach: groups")
+  div
+    span(data-bind="text: title")
+    div(data-bind="foreach: melodies")
+      div(data-bind="component: {name: 'audio', params: $data }")

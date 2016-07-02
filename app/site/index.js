@@ -81,7 +81,6 @@ if (app.get('env') === 'development') {
 	});
 }
 
-
 module.exports = function () {
 	var debug = require('debug')('app:server');
 	var http = require('http');
@@ -90,6 +89,24 @@ module.exports = function () {
 	app.set('port', port);
 
 	var server = http.createServer(app);
+
+	var io = require('socket.io')(server);
+
+	io.on('connection', function (socket) {
+		console.log('a user connected');
+		socket.on('disconnect', function () {
+			console.log('user disconnected');
+		});
+
+		socket.on('pause', function (id) {
+			console.log('group: ' + id);
+
+
+			io.emit('pause', id);
+		});
+	});
+
+
 
 	server.listen(port);
 	server.on('error', onError);
