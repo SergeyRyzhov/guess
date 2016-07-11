@@ -7,6 +7,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
+
+var startup = require('./startup.js');
+
 var app = express();
 
 // view engine setup
@@ -159,5 +162,8 @@ module.exports = function () {
 			: 'port ' + addr.port;
 		debug('Listening on ' + bind);
 	}
+
+	startup();
+	
 	return app;
 };

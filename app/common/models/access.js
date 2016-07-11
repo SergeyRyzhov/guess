@@ -40,7 +40,7 @@ schema.statics = {
         callback(err, null, false);
       }
 
-      this.findOne({ user: user._id, role: role._id }, function (err, result) {
+      Model.findOne({ user: user._id, role: role._id }, function (err, result) {
         if (err || result) {
           callback(err, result, false)
         } else {

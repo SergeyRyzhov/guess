@@ -1,4 +1,11 @@
-.mdl-grid
-  .mdl-cell.mdl-cell--12-col
-    div(data-bind="component: 'audio-grid'")
-    div(data-bind="component: 'audio-upload'")
+if  user.accessLevel == 0
+  // ko component: {name: 'game-view', params: { }}
+  // /ko
+
+if user.accessLevel == 1
+  // ko component: {name: 'game-player', params: { }}
+  // /ko
+    
+if user.accessLevel == 2
+  // ko component: {name: 'game-mngr', params: { }}
+  // /ko
