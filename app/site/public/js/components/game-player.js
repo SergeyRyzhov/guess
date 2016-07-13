@@ -1,26 +1,17 @@
 define([
-	'knockout',
-	'underscore',
-	'storage',
-	'constants',
-	'localization',
-	'amplify',
-	'socketio'
-], function (ko, _, storage, constants, localization, amplify, socketio) {
-	'use strict';
+  'knockout',
+  'underscore',
+  'storage',
+  'constants',
+  'localization',
+  'amplify'
+], function (ko, _, storage, constants, localization, amplify) {
+  'use strict';
 
-	var socket = socketio();
-
-	amplify.subscribe('pause.all.request', function () {
-		socket.emit('pause', 'groupid');
-	});
-
-	socket.on('pause', function (groupid) {
-		amplify.publish('pause.all.processed');
-	});
-
-	return function (params) {
-		return {
-		}
-	};
+  return function (params) {
+    function testPause() {
+      amplify.publish('pause.all.request');
+    }
+    return { testPause: testPause };
+  };
 });
