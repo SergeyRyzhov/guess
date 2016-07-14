@@ -5,8 +5,8 @@ define([
   'constants',
   'localization',
   'amplify',
-  'json!/api/melody'
-], function (ko, _, storage, constants, localization, amplify, melodies) {
+  'json!/api/game',
+], function (ko, _, storage, constants, localization, amplify, game) {
   'use strict';
 
   return function (params) {
@@ -16,18 +16,21 @@ define([
     function play() {
       element().play();
     }
+    var groups = _.map(game.categories, function (category) {
+      var melodies = ko.observableArray();
+
+      require(['json!/api/melody/category/' + category.id], function (melodiesData) {
+        melodies(melodiesData);
+      });
+
+      return {
+        title: category.title,
+        melodies: melodies
+      }
+    });
 
     return {
-      groups: [
-        {
-          title: 'Категория 1',
-          melodies: melodies
-        },        
-        {
-          title: 'Категория 2',
-          melodies: melodies
-        }
-      ]
+      groups: groups
     };
   };
 });
