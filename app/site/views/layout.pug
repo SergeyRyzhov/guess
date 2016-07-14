@@ -1,12 +1,26 @@
 - bodyclass=''
 doctype html
-html(lang=culture)
+html(lang='en')
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0')
+    meta(name='mobile-web-app-capable', content='yes')
     block headermeta
+
+    link(rel='icon', sizes='192x192', href='images/android-desktop.png')
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='apple-mobile-web-app-status-bar-style', content='black')
+    meta(name='apple-mobile-web-app-title', content='Material Design Lite')
+    link(rel='apple-touch-icon-precomposed', href='images/ios-desktop.png')
+    meta(name='msapplication-TileImage', content='images/touch/ms-touch-icon-144x144-precomposed.png')
+    meta(name='msapplication-TileColor', content='#3372DF')
+    link(rel='shortcut icon', href='images/favicon.png')
+    link(rel="canonical" href="http://www.example.com/")
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&lang=en')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    link(rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.deep_orange-red.min.css")
+    link(rel='stylesheet', href='css/theme-styles.css')   
     
     title= labels.site.title
     
@@ -15,28 +29,39 @@ html(lang=culture)
     link(rel="icon", href="/img/favicon.ico", type="image/x-icon")
     link(rel="shortcut icon", href="/img/favicon.ico", type="image/x-icon")
     script(src="/vendor/js/material.js")
-    
+
+    style.
+      #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+      }
     block headerscripts
   body(class=bodyclass)
     .mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header
-      header.mdl-layout__header
-        .mdl-layout__header-row
-          span.mdl-layout-title.site-title= labels.site.title
-          span.mdl-layout-title.site-short-title= labels.site.shortTitle
-          .mdl-layout-spacer
-          if user.isAuthenticated
-            a.mdl-button.mdl-js-button.mdl-button--fab.mdl-button--mini-fab.mdl-js-ripple-effect.mdl-button--colored(href='#account')
-              i.material-icons add
-          - var langAttributes = {'data-bind': {component: {name: 'language-selector', params: labels.localization }}};
-          div&attributes(langAttributes)
-          // .mdl-textfield.mdl-js-textfield.mdl-textfield--expandable.mdl-textfield--floating-label.mdl-textfield--align-right
-          //   label.mdl-button.mdl-js-button.mdl-button--icon(for='fixed-header-drawer-exp')
-          //     i.material-icons search
-          //   .mdl-textfield__expandable-holder
-          //     input#fixed-header-drawer-exp.mdl-textfield__input(type='text', name='search', placeholder= labels.search.title)
+      //- header.mdl-layout__header
+      //-   .mdl-layout__header-row
+      //-     span.mdl-layout-title.site-title= labels.site.title
+      //-     span.mdl-layout-title.site-short-title= labels.site.shortTitle
+      //-     .mdl-layout-spacer
+      //-     if user.isAuthenticated
+      //-       a.mdl-button.mdl-js-button.mdl-button--fab.mdl-button--mini-fab.mdl-js-ripple-effect.mdl-button--colored(href='#account')
+      //-         i.material-icons add
+      //-     - var langAttributes = {'data-bind': {component: {name: 'language-selector', params: labels.localization }}};
+      //-     div&attributes(langAttributes)
+      //-     // .mdl-textfield.mdl-js-textfield.mdl-textfield--expandable.mdl-textfield--floating-label.mdl-textfield--align-right
+      //-     //   label.mdl-button.mdl-js-button.mdl-button--icon(for='fixed-header-drawer-exp')
+      //-     //     i.material-icons search
+      //-     //   .mdl-textfield__expandable-holder
+      //-     //     input#fixed-header-drawer-exp.mdl-textfield__input(type='text', name='search', placeholder= labels.search.title)
       .mdl-layout__drawer
         span.mdl-layout-title=labels.site.shortTitle
         - var menuAttributes = {'data-bind': {component: {name: 'menu', params: labels.menu }}};
         div&attributes(menuAttributes)
       main.mdl-layout__content
         block content
+        
