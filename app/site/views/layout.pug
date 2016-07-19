@@ -42,7 +42,15 @@ html(lang='en')
       }
     block headerscripts
   body(class=bodyclass)
-    .mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header
+    .mdl-layout-container
+      .mdl-layout.mdl-js-layout.mdl-layout--fixed-header.has-drawer.is-upgraded
+        main.mdl-layout__content.mdl-grid
+            .mdl-layout-spacer
+            .mdl-cell.mdl-cell--10-col
+              block content
+            .mdl-layout-spacer
+
+          
       //- header.mdl-layout__header
       //-   .mdl-layout__header-row
       //-     span.mdl-layout-title.site-title= labels.site.title
@@ -58,10 +66,8 @@ html(lang='en')
       //-     //     i.material-icons search
       //-     //   .mdl-textfield__expandable-holder
       //-     //     input#fixed-header-drawer-exp.mdl-textfield__input(type='text', name='search', placeholder= labels.search.title)
-      .mdl-layout__drawer
-        span.mdl-layout-title=labels.site.shortTitle
-        - var menuAttributes = {'data-bind': {component: {name: 'menu', params: labels.menu }}};
-        div&attributes(menuAttributes)
-      main.mdl-layout__content
-        block content
+      //- .mdl-layout__drawer
+      //-   span.mdl-layout-title=labels.site.shortTitle
+      //-   - var menuAttributes = {'data-bind': {component: {name: 'menu', params: labels.menu }}};
+      //-   div&attributes(menuAttributes)
         

@@ -10,7 +10,7 @@ define([
   var page = ko.observable(utils.purl.attr('fragment'));
 
   var displayPage = ko.pureComputed(function () {
-    return page() || 'account';
+    return page() || 'game';
   });
 
   function initialize() {

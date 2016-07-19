@@ -33,11 +33,11 @@ function init(router) {
       players: [
         {
           id: 1,
-          title: 'Пупсики'
+          title: 'Лютики'
         },
         {
           id: 2,
-          title: 'НЕпоседы'
+          title: 'Васильки'
         }
       ]
     });

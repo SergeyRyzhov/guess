@@ -23,6 +23,21 @@ function init(router) {
             score: 20,
             url: '/audio/Leschenko - Black eyes.mp3',
             type: 'audio/mpeg'
+          },
+          {
+            score: 30,
+            url: '/audio/Leschenko - Black eyes.mp3',
+            type: 'audio/mpeg'
+          },
+          {
+            score: 40,
+            url: '/audio/Leschenko - Black eyes.mp3',
+            type: 'audio/mpeg'
+          },
+          {
+            score: 50,
+            url: '/audio/Leschenko - Black eyes.mp3',
+            type: 'audio/mpeg'
           }]);
         return;
       }
