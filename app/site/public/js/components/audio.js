@@ -8,6 +8,15 @@ define([
 ], function (ko, _, storage, constants, localization, amplify) {
   'use strict';
 
+  var socket = socketio();
+  // amplify.subscribe('pause.all.request', function () {
+  //   socket.emit('pause', 'groupid');
+  // });
+
+  // socket.on('pause', function (groupid) {
+  //   amplify.publish('pause.all.processed');
+  // });
+
   return function (params) {
     var melody = params || {};
     var element = ko.observable();
@@ -16,18 +25,28 @@ define([
 
     function play() {
       element().play();
+      socket.emit('current.melody', melody);
     }
 
-    function pause(){
+    function pause() {
       element().pause();
     }
 
-    function initialize(){
-      amplify.subscribe('pause.all.processed', pause);
+
+    function playCondition(id) {
+      if (id == melody._id) {
+        play();
+      }
     }
 
-    function dispose(){
+    function initialize() {
+      amplify.subscribe('pause.all.processed', pause);
+      amplify.subscribe('play.melody', playCondition);
+    }
+
+    function dispose() {
       amplify.unsubscribe('pause.all.processed', pause);
+      amplify.unsubscribe('play.melody', playCondition);
     }
 
     return {

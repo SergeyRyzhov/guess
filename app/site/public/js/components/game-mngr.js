@@ -11,16 +11,33 @@ define([
 
 	var socket = socketio();
 
-	amplify.subscribe('pause.all.request', function () {
-		socket.emit('pause', 'groupid');
-	});
+	// amplify.subscribe('pause.all.request', function () {
+	// 	socket.emit('pause', 'groupid');
+	// });
 
-	socket.on('pause', function (groupid) {
-		amplify.publish('pause.all.processed');
-	});
+	// socket.on('pause', function (groupid) {
+	// 	amplify.publish('pause.all.processed');
+	// });
 
 	return function (params) {
+		var currentMelody = ko.observable();
+		
+		function otherTeam() {
+			
+		}
+
+		function right(bonus) {
+			bonus = bonus || 0;
+			var score = currentMelody().score + bonus;
+			//amplify.publish()
+
+			//socket.emit('pause', 'groupid');
+		}
+		
+
+
 		return {
+			melody: currentMelody
 		}
 	};
 });

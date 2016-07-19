@@ -103,9 +103,12 @@ module.exports = function () {
 
 		socket.on('pause', function (id) {
 			console.log('group: ' + id);
-
-
 			io.emit('pause', id);
+		});
+
+		socket.on('current.melody', function (melody) {
+			console.log('current.melody: ' + melody);
+			io.emit('current.melody', melody);
 		});
 	});
 

@@ -14,27 +14,38 @@ function init(router) {
       case 3:
       case 4:
       case 5: {
-        res.send([{
-          score: 10,
-          url: '/audio/Leningrad - Exponat.mp3',
-          type: 'audio/mpeg'
-        },
+        res.send([
           {
+            _id: 1,
+            name: 'Ленинград - Экспонат (На лабутенах)',
+            score: 10,
+            url: '/audio/Leningrad - Exponat.mp3',
+            type: 'audio/mpeg'
+          },
+          {
+            _id: 2,
+            name: 'Лещенко - Чёрные глаза',
             score: 20,
             url: '/audio/Leschenko - Black eyes.mp3',
             type: 'audio/mpeg'
           },
           {
+            _id: 3,
+            name: '3',
             score: 30,
             url: '/audio/Leschenko - Black eyes.mp3',
             type: 'audio/mpeg'
           },
           {
+            _id: 4,
+            name: '4',
             score: 40,
             url: '/audio/Leschenko - Black eyes.mp3',
             type: 'audio/mpeg'
           },
           {
+            _id: 5,
+            name: '5',
             score: 50,
             url: '/audio/Leschenko - Black eyes.mp3',
             type: 'audio/mpeg'
