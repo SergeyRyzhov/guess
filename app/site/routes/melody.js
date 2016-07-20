@@ -10,7 +10,7 @@ function init(router) {
       _id: i,
       name: name,
       score: score,
-      url: '/audio/' + fileName,
+      url: '/audio/' + fileName + '.mp3',
       type: 'audio/mpeg'
     };
   }
@@ -21,35 +21,35 @@ function init(router) {
     switch (id) {
       case 1: {
         melodies =  [
-          createMelody(11, 10, 'Ах эта свадьба...', 'ah eta svadba'),
-          createMelody(12, 20, 'Обручальное кольцо непростое украшение', 'ah eta svadba'),
-          createMelody(13, 30, 'Мумий Тролль - Невеста', 'ah eta svadba'),
-          createMelody(14, 40, 'Чай Вдвоем - Белое платье', 'ah eta svadba'),
-          createMelody(15, 50, 'Алсу - Ничто не может быть чудесней', 'ah eta svadba'),
-          createMelody(16, 60, 'Егор Крид - Невеста', 'ah eta svadba'),
-          createMelody(17, 70, 'Глюкоза - Невеста', 'ah eta svadba'),
+          createMelody(11, 10, 'Муслим Магамаев - Ах эта свадьба...', 'Muslim Magomaev - Ah ehta svadba'),
+          createMelody(12, 60, 'Лейся, песня - Обручальное кольцо', 'Lejsya pesnya - Obruchalnoe kolco'),
+          createMelody(13, 20, 'Мумий Тролль - Невеста', 'Mumij Troll - Nevesta'),
+          createMelody(14, 30, 'Чай Вдвоем - Белое платье', 'CHaj vdvoyom - Beloe plate'),
+          createMelody(15, 40, 'Алсу - Вместе и навсегда', 'Alsu - Vmeste i navsegda'),
+          createMelody(16, 50, 'Глюк\'oZa - Невеста', 'Glyukoza - Nevesta'),
+          createMelody(17, 70, 'Звери - Для тебя', 'Zveri - Dlya tebya'),
         ];
         break;
       }
       case 2: {
         melodies =  [
-          createMelody(21, 10, 'Крутится-вертится шар голубой', 'ah eta svadba'),
-          createMelody(22, 20, 'Песня о медведях', 'ah eta svadba'),
-          createMelody(23, 30, 'Утомленные солнцем', 'ah eta svadba')
+          createMelody(21, 10, 'Лев Лещенко - Крутится вертится шар голубой', 'Lev Leshchenko - Krutitsya vertitsya shar goluboj'),
+          createMelody(22, 20, 'Аида Ведищева - Песенка о медведях', 'Aida Vedishcheva - Pesenka o medvedyah'),
+          createMelody(23, 30, 'Леонид Утёсов - Утомлённое солнце', 'Leonid Utyosov - Utomlyonnoe solnce')
         ];
         break;
       }
       case 3: {
         melodies =  [
-          createMelody(31, 10, 'Ю. Никулин "Песня про зайцев"', 'ah eta svadba'),
-          createMelody(32, 20, 'Песня про черного кота', 'ah eta svadba'),
-          createMelody(33, 30, 'В. Бутусов "Одинокая птица"', 'ah eta svadba')
+          createMelody(31, 10, 'Юрий Никулин - Песня про зайцев', 'YUrij Nikulin - Pesnya pro zajcev'),
+          createMelody(32, 20, 'Браво - Валерий Сюткин - Чёрный кот', 'Bravo - Valerij Syutkin - CHyornyj kot'),
+          createMelody(33, 30, 'Наутилус Помпилиус - Одинокая птица', 'Nautilus Pompilius - Odinokaya ptitsa')
         ];
         break;
       }
       case 4: {
         melodies =  [
-          createMelody(41, 10, 'Ах эти черные глаза', 'Leschenko - Black eyes.mp3')
+          createMelody(41, 10, 'Пётр Лещенко - Ах эти чёрные глаза', 'PYotr Leschenko - Ah eti chYornyie glaza')
         ];
         break;
       }

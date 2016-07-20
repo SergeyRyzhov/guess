@@ -2,4 +2,4 @@ audio(data-bind="audio: element")
   source(data-bind="attr: { src: mediaUrl, type: mediaType }")
   |labels.game.errors.notSupported
   a(data-bind="attr: { href: mediaUrl }") labels.game.audio.download
-button.mdl-button.mdl-js-button.mdl-button--fab.mdl-button--colored(data-bind="click: play, text: score") labels.game.audio.play
+button.mdl-button.mdl-js-button.mdl-button--fab.mdl-button--colored(data-bind="click: play, text: score, attr: {title: name}") labels.game.audio.play

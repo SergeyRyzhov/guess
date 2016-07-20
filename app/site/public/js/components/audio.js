@@ -54,6 +54,7 @@ define([
       mediaUrl: melody.url,
       mediaType: melody.type,
       score: melody.score,
+      name: melody.name,
       play: play,
       element: element,
       dispose: dispose
