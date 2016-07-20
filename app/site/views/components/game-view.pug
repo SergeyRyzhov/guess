@@ -1,4 +1,9 @@
 .mdl-grid
   .mdl-cell.mdl-cell--12-col
-    div(data-bind="component: 'audio-grid'")
+    table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp
+      tbody(data-bind="foreach: groups")
+        tr
+          td.mdl-data-table__cell--non-numeric(data-bind="text: title")
+          td(data-bind="foreach: melodies")
+            div(data-bind="component: {name: 'audio', params: $data }", style="display: inline; margin-right:30px;")
     |Табло

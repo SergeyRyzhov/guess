@@ -10,13 +10,6 @@ define([
   'use strict';
 
   var socket = socketio();
-  // amplify.subscribe('pause.all.request', function () {
-  //   socket.emit('pause', 'groupid');
-  // });
-
-  // socket.on('pause', function (groupid) {
-  //   amplify.publish('pause.all.processed');
-  // });
 
   return function (params) {
     var melody = params || {};
@@ -24,38 +17,31 @@ define([
 
     initialize();
 
-    function play() {
-      element().play();
-      socket.emit('current.melody', melody);
-    }
-
-    function pause() {
+    function pauseCondition(_melody) {
+      // if (_melody._id == melody._id) {
       element().pause();
+      // }
     }
 
 
-    function playCondition(id) {
-      if (id == melody._id) {
-        play();
+    function playCondition(_melody) {
+      if (_melody._id == melody._id) {
+        element().play();
       }
     }
 
     function initialize() {
-      amplify.subscribe('pause.all.processed', pause);
-      amplify.subscribe('play.melody', playCondition);
+      socket.on('play.melody', playCondition);
+      socket.on('pause.melody', pauseCondition);
     }
 
     function dispose() {
-      amplify.unsubscribe('pause.all.processed', pause);
-      amplify.unsubscribe('play.melody', playCondition);
     }
 
     return {
       mediaUrl: melody.url,
       mediaType: melody.type,
       score: melody.score,
-      name: melody.name,
-      play: play,
       element: element,
       dispose: dispose
     };
