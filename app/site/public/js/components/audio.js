@@ -4,8 +4,9 @@ define([
   'storage',
   'constants',
   'localization',
-  'amplify'
-], function (ko, _, storage, constants, localization, amplify) {
+  'amplify',
+  'socketio'
+], function (ko, _, storage, constants, localization, amplify, socketio) {
   'use strict';
 
   var socket = socketio();

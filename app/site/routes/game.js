@@ -11,24 +11,32 @@ function init(router) {
       categories: [
         {
           id: 1,
-          title: 'Современные'
+          title: 'В платье белом'
         },
         {
           id: 2,
-          title: 'Золотые'
+          title: 'Безгранник'
         },
         {
           id: 3,
-          title: 'Из фильмов'
+          title: 'В мире животных'
         },
         {
           id: 4,
-          title: 'АПОЖ'
+          title: 'Яблочная'
         },
         {
           id: 5,
-          title: 'Рок'
+          title: '4 стихии'
         },
+        {
+          id: 6,
+          title: 'Красной краской красят крышу'
+        },
+        {
+          id: 7,
+          title: 'Апож'
+        }
       ],
       players: [
         {

@@ -18,8 +18,11 @@ define([
       if (role == 'view') {
         nextComponent = 'game-view';
       }
+      if (role.substring(0, 4) == 'team') {
+        params.team(Number(role.substring(4)));
+      }
 
-      params.view(nextComponent)
+      params.view(nextComponent);
     }
 
     return {
