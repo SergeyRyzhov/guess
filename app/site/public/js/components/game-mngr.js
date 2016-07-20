@@ -22,6 +22,22 @@ define([
 
 	return function (params) {
 		var currentMelody = ko.observable();
+		var team = ko.observable();
+		var hasMelody = ko.observable();
+		var hasAnswer = ko.observable();
+
+		socket.on('play.melody', function (_currentMelody) {
+			hasMelody(true);
+			currentMelody(_currentMelody);
+		});
+
+		
+		socket.on('answer', function (_team) {
+			hasAnswer(true);
+			_team(_team);
+			/*hasMelody(true);
+			currentMelody(_currentMelody);*/
+		});
 
 		function otherTeam() {
 
@@ -33,6 +49,8 @@ define([
 			//amplify.publish()
 
 			//socket.emit('pause', 'groupid');
+			hasMelody(false);
+			hasAnswer(false);
 		}
 
 		var groups = _.map(game.categories, function (category) {

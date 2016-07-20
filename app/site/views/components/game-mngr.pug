@@ -6,4 +6,6 @@
           td.mdl-data-table__cell--non-numeric(data-bind="text: title")
           td(data-bind="foreach: melodies")
             div(data-bind="component: {name: 'audio-control', params: $data }", style="display: inline; margin-right:30px;")
+  .mdl-cell.mdl-cell--12-col(data-bind="visible: hasMelody")
+
     |Ведущий
