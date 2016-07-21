@@ -31,7 +31,7 @@ define([
 			currentMelody(_currentMelody);
 		});
 
-		
+
 		socket.on('answer', function (_team) {
 			hasAnswer(true);
 			_team(_team);
@@ -67,6 +67,8 @@ define([
 		});
 
 		return {
+			hasMelody: hasMelody,
+			hasAnswer: hasAnswer,
 			groups: groups,
 			melody: currentMelody
 		}

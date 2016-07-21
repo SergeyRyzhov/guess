@@ -101,14 +101,21 @@ module.exports = function () {
 			console.log('user disconnected');
 		});
 
-		socket.on('pause', function (id) {
-			console.log('group: ' + id);
-			io.emit('pause', id);
-		});
+		// socket.on('pause', function (id) {
+		// 	console.log('group: ', id);
+		// 	io.emit('pause', id);
+		// });
 
 		socket.on('play.melody', function (melody) {
-			console.log('play.melody: ' + melody);
+			console.log('play.melody: ', melody);
 			io.emit('play.melody', melody);
+		});
+
+		
+		socket.on('answer', function (team) {
+			console.log('answer: ', team);
+			io.emit('answer', team);
+			io.emit('pause.all');
 		});
 	});
 
