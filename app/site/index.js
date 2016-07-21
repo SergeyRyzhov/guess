@@ -109,13 +109,16 @@ module.exports = function () {
 		socket.on('play.melody', function (melody) {
 			console.log('play.melody: ', melody);
 			io.emit('play.melody', melody);
+			io.emit('answer.alow', true);
 		});
 
-		
+
 		socket.on('answer', function (team) {
 			console.log('answer: ', team);
+			team.answerTime = new Date();
 			io.emit('answer', team);
-			io.emit('pause.all');
+			io.emit('answer.alow', false);
+			io.emit('pause.melody');
 		});
 	});
 
@@ -174,6 +177,6 @@ module.exports = function () {
 	}
 
 	startup();
-	
+
 	return app;
 };

@@ -11,14 +11,9 @@ define([
 	'use strict';
 
 	var socket = socketio();
-
-	amplify.subscribe('pause.all.request', function () {
-		socket.emit('pause', 'groupid');
-	});
-
-	socket.on('pause', function (groupid) {
-		amplify.publish('pause.all.processed');
-	});
+	// socket.on('pause.all', function (groupid) {
+	// 	amplify.publish('pause.all.processed');
+	// });
 
 	return function (params) {
 		var groups = _.map(game.categories, function (category) {

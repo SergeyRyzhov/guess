@@ -28,13 +28,22 @@ define([
 
 		socket.on('play.melody', function (_currentMelody) {
 			hasMelody(true);
+			hasAnswer(false);
+			team({});
 			currentMelody(_currentMelody);
 		});
 
 
 		socket.on('answer', function (_team) {
 			hasAnswer(true);
-			_team(_team);
+			console.log(_team);
+			if (team().answerTime != undefined)				
+			{
+				if (Date(_team.answerTime) < Date(team().answerTime))
+					team(_team);
+			}
+			else
+					team(_team);
 			/*hasMelody(true);
 			currentMelody(_currentMelody);*/
 		});
@@ -70,7 +79,8 @@ define([
 			hasMelody: hasMelody,
 			hasAnswer: hasAnswer,
 			groups: groups,
-			melody: currentMelody
+			melody: currentMelody,
+			team: team
 		}
 	};
 });

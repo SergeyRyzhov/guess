@@ -4,17 +4,21 @@ define([
   'storage',
   'constants',
   'localization',
-  'amplify'
-], function (ko, _, storage, constants, localization, amplify) {
+  'amplify',
+  'socketio'
+], function (ko, _, storage, constants, localization, amplify, socketio) {
   'use strict';
 
-	var socket = socketio();
+  var socket = socketio();
   return function (params) {
-    function testPause() {
+    var allowAnswer = ko.observable(false);
+
+    socket.on('answer.alow', allowAnswer);
+    function answer() {
       // amplify.publish('pause.all.request');
-      var player = _.findWherer(params.players, { _id: params.team });
+      var player = _.findWhere(params.players, { _id: params.team });
       socket.emit('answer', player);
     }
-    return { testPause: testPause };
+    return { answer: answer, allowAnswer: allowAnswer };
   };
 });

@@ -40,11 +40,11 @@ function init(router) {
       ],
       players: [
         {
-          id: 1,
+          _id: 1,
           title: 'Лютики'
         },
         {
-          id: 2,
+          _id: 2,
           title: 'Васильки'
         }
       ]
