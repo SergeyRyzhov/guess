@@ -1,4 +1,4 @@
-table.mdl-data-table.mdl-js-data-table(data-bind="'ifnot': hasMelody")
+table.mdl-data-table.mdl-js-data-table(data-bind="visible: !hasMelody()")
   tbody(data-bind="foreach: groups")
     tr
       td(data-bind="text: title")
@@ -8,11 +8,19 @@ table.mdl-data-table.mdl-js-data-table(data-bind="'ifnot': hasMelody")
       td(data-bind="text: title")
 div(data-bind="'if': hasMelody")
   .gs-melody(data-bind="with: melody")
-    b(data-bind="text: name")
+    center.typo-styles__demo.mdl-typography--display-2(data-bind="text: name")
 div(data-bind="'if': hasAnswer")
   .gs-team(data-bind="with: team")
-    b(data-bind="text: title")
+    center.typo-styles__demo.mdl-typography--display-3(data-bind="text: title")
   .gs-actions
-    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(data-bind='click: right.bind(null, 1), text: rightFirstText')
-    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(data-bind='click: right.bind(null, 2), text: rightSecondText')    
-    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(data-bind='click: continuePlay.bind(null, 2)') Слушать дальше
+
+    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(data-bind='click: right.bind(null, 1, 0), text: rightFirstText')
+    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(data-bind='click: right.bind(null, 2, 0), text: rightSecondText' style='float: right')
+    br
+    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect(data-bind='click: right.bind(null, 1, 5)')
+      span(data-bind='text: rightFirstText() + " + бонус"')
+    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect(data-bind='click: right.bind(null, 2, 5)' style='float: right')
+      span(data-bind='text: rightSecondText() + " + бонус"')
+    br
+    center
+      button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect(data-bind='click: continuePlay.bind(null, 2)') Слушать дальше
