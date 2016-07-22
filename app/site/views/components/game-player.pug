@@ -1,4 +1,3 @@
-button.round-button(data-bind='click: answer, enable: allowAnswer')
-  .round-button-circle
-    a.round-button БОЛЬШАЯ КРАСНАЯ КНОПКА
-|Игрок
+button.gs-btn-big.mdl-button.mdl-js-button.mdl-button--fab.mdl-button--colored(data-bind='click: answer, enable: allowAnswer')
+  p(data-bind='text:profile().title')
+  p(data-bind='text:profile().score')

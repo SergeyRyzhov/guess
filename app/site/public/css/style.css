@@ -1,6 +1,11 @@
-.centered {
+.gs-centered {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.gs-btn-big {
+    min-width: 15em;
+    min-height: 15em;
 }

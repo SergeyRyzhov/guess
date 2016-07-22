@@ -24,28 +24,26 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 ///Compression and minifications
-if (app.get('env') === 'development') {
-}
-else {
-	var compression = require('compression');
-	var minify = require('express-minify');
-	app.use(compression());
-	app.use(minify({ cache: path.join(__dirname, 'cache') }));
+if (app.get('env') === 'development') {} else {
+    var compression = require('compression');
+    var minify = require('express-minify');
+    app.use(compression());
+    app.use(minify({ cache: path.join(__dirname, 'cache') }));
 }
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 app.use('/vendor', express.static(path.join(__dirname, 'vendor')));
 
 var authenticator = require('./tools/authenticator');
-app.use(authenticator.midleware);
+// app.use(authenticator.midleware);
 
 app.use('/', routes);
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
-	var err = new Error('Not Found');
-	err.status = 404;
-	next(err);
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
 // error handlers
@@ -53,130 +51,134 @@ var settings = require('./tools/settings');
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-	app.use(function (err, req, res, next) {
-		logger.error(err);
-		res.status(err.status || 500);
-		res.render('error', settings.extended(req, {
-			user: {
-				isAuthenticated: false
-			},
-			exception: {
-				message: err.message,
-				error: err
-			}
-		}));
-	});
+    app.use(function(err, req, res, next) {
+        logger.error(err);
+        res.status(err.status || 500);
+        res.render('error', settings.extended(req, {
+            user: {
+                isAuthenticated: false
+            },
+            exception: {
+                message: err.message,
+                error: err
+            }
+        }));
+    });
 } else {
-	// production error handler
-	// no stacktraces leaked to user
-	app.use(function (err, req, res, next) {
-		logger.error(err);
-		res.status(err.status || 500);
-		res.render('error', settings.extended(req, {
-			user: {
-				isAuthenticated: false
-			},
-			exception: {
-				message: err.message,
-				error: {}
-			}
-		}));
-	});
+    // production error handler
+    // no stacktraces leaked to user
+    app.use(function(err, req, res, next) {
+        logger.error(err);
+        res.status(err.status || 500);
+        res.render('error', settings.extended(req, {
+            user: {
+                isAuthenticated: false
+            },
+            exception: {
+                message: err.message,
+                error: {}
+            }
+        }));
+    });
 }
 
-module.exports = function () {
-	var debug = require('debug')('app:server');
-	var http = require('http');
+module.exports = function() {
+    var debug = require('debug')('app:server');
+    var http = require('http');
 
-	var port = normalizePort(__env.PORT || '3000');
-	app.set('port', port);
+    var port = normalizePort(__env.PORT || '3000');
+    app.set('port', port);
 
-	var server = http.createServer(app);
+    var server = http.createServer(app);
 
-	var io = require('socket.io')(server);
+    var io = require('socket.io')(server);
 
-	io.on('connection', function (socket) {
-		console.log('a user connected');
-		socket.on('disconnect', function () {
-			console.log('user disconnected');
-		});
+    io.on('connection', function(socket) {
+        console.log('a user connected');
+        socket.on('disconnect', function() {
+            console.log('user disconnected');
+        });
 
-		// socket.on('pause', function (id) {
-		// 	console.log('group: ', id);
-		// 	io.emit('pause', id);
-		// });
+        // socket.on('pause', function (id) {
+        // 	console.log('group: ', id);
+        // 	io.emit('pause', id);
+        // });
 
-		socket.on('play.melody', function (melody) {
-			console.log('play.melody: ', melody);
-			io.emit('play.melody', melody);
-			io.emit('answer.alow', true);
-		});
+        socket.on('play.melody', function(melody) {
+            console.log('play.melody: ', melody);
+            io.emit('play.melody', melody);
+            io.emit('answer.alow', true);
+        });
 
 
-		socket.on('answer', function (team) {
-			console.log('answer: ', team);
-			team.answerTime = new Date();
-			io.emit('answer', team);
-			io.emit('answer.alow', false);
-			io.emit('pause.melody');
-		});
-	});
+        socket.on('players.update', function(players) {
+            console.log('players.update: ', players);
+            io.emit('players.update', players);
+        });
 
 
 
-	server.listen(port);
-	server.on('error', onError);
-	server.on('listening', onListening);
 
-	function normalizePort(val) {
-		var port = parseInt(val, 10);
+        socket.on('answer', function(team) {
+            console.log('answer: ', team);
+            team.answerTime = new Date();
+            io.emit('answer', team);
+            io.emit('answer.alow', false);
+            io.emit('pause.melody');
+        });
+    });
 
-		if (isNaN(port)) {
-			// named pipe
-			return val;
-		}
 
-		if (port >= 0) {
-			// port number
-			return port;
-		}
 
-		return false;
-	}
+    server.listen(port);
+    server.on('error', onError);
+    server.on('listening', onListening);
 
-	function onError(error) {
-		if (error.syscall !== 'listen') {
-			throw error;
-		}
+    function normalizePort(val) {
+        var port = parseInt(val, 10);
 
-		var bind = typeof port === 'string'
-			? 'Pipe ' + port
-			: 'Port ' + port;
+        if (isNaN(port)) {
+            // named pipe
+            return val;
+        }
 
-		// handle specific listen errors with friendly messages
-		switch (error.code) {
-			case 'EACCES':
-				console.error(bind + ' requires elevated privileges');
-				process.exit(1);
-				break;
-			case 'EADDRINUSE':
-				console.error(bind + ' is already in use');
-				process.exit(1);
-				break;
-			default:
-				throw error;
-		}
-	}
+        if (port >= 0) {
+            // port number
+            return port;
+        }
 
-	function onListening() {
-		var addr = server.address();
-		var bind = typeof addr === 'string'
-			? 'pipe ' + addr
-			: 'port ' + addr.port;
-		debug('Listening on ' + bind);
-	}
+        return false;
+    }
 
-	startup();
+    function onError(error) {
+        if (error.syscall !== 'listen') {
+            throw error;
+        }
 
-	return app;
+        var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
+
+        // handle specific listen errors with friendly messages
+        switch (error.code) {
+            case 'EACCES':
+                console.error(bind + ' requires elevated privileges');
+                process.exit(1);
+                break;
+            case 'EADDRINUSE':
+                console.error(bind + ' is already in use');
+                process.exit(1);
+                break;
+            default:
+                throw error;
+        }
+    }
+
+    function onListening() {
+        var addr = server.address();
+        var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
+        debug('Listening on ' + bind);
+    }
+
+    startup();
+
+    return app;
 };

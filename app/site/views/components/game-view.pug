@@ -6,4 +6,6 @@ table.mdl-data-table.mdl-js-data-table
       td(data-bind="component: {name: 'audio', params: $data }")
       // /ko
       td(data-bind="text: title")
-|Табло
+// ko foreach: players
+h5.mdl-badge(data-bind='attr: {"data-badge":score}, text: title')
+// /ko
