@@ -1,0 +1,8 @@
+extends layout
+block headermeta
+block headerscripts
+  - bodyclass=''
+  script(src="/vendor/js/require.js", data-main="/js/startup")
+  link(rel='stylesheet', href='/css/style.css')
+block content
+  .gs-centered(data-bind="component: page")

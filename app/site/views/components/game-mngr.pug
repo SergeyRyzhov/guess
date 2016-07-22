@@ -1,0 +1,18 @@
+table.mdl-data-table.mdl-js-data-table(data-bind="'ifnot': hasMelody")
+  tbody(data-bind="foreach: groups")
+    tr
+      td(data-bind="text: title")
+      // ko foreach: melodies
+      td(data-bind="component: {name: 'audio-control', params: $data }")
+      // /ko
+      td(data-bind="text: title")
+div(data-bind="'if': hasMelody")
+  .gs-melody(data-bind="with: melody")
+    b(data-bind="text: name")
+div(data-bind="'if': hasAnswer")
+  .gs-team(data-bind="with: team")
+    b(data-bind="text: title")
+  .gs-actions
+    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(data-bind='click: right.bind(null, 1), text: rightFirstText')
+    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(data-bind='click: right.bind(null, 2), text: rightSecondText')    
+    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(data-bind='click: continuePlay.bind(null, 2)') Слушать дальше

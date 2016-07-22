@@ -1,0 +1,27 @@
+//- if  user.accessLevel == 0
+//-   // ko component: {name: 'game-view', params: { }}
+//-   // /ko
+
+//- if user.accessLevel == 1
+//-   // ko component: {name: 'game-player', params: { }}
+//-   // /ko
+    
+//- if user.accessLevel == 2
+//-   // ko component: {name: 'game-mngr', params: { }}
+//-   // /ko
+
+// ko component: {name: view, params: { view: view, players: players, team: team }}
+// /ko
+
+//- // ko component: {name: 'game-mngr', params: { players: players, team: 0 }}
+//- // /ko
+
+//- // ko component: {name: 'game-view', params: { players: players, team: 0 }}
+//- // /ko
+
+//- // ko component: {name: 'game-player', params: { players: players, team: 1 }}
+//- // /ko
+
+//- // ko component: {name: 'game-player', params: { players: players, team: 2 }}
+//- // /ko
+
