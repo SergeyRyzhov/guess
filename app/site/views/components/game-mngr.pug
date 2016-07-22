@@ -1,4 +1,4 @@
-table.mdl-data-table.mdl-js-data-table(data-bind="'ifnot': hasMelody")
+table.mdl-data-table.mdl-js-data-table(data-bind="visible: !hasMelody()")
   tbody(data-bind="foreach: groups")
     tr
       td(data-bind="text: title")
