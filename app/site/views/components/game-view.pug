@@ -1,3 +1,10 @@
+div(style='text-align:center')
+  span.typo-styles__demo.mdl-typography--display-2.mdl-badge(data-bind='attr: {"data-badge":players()[0].score}, text: players()[0].title' style='float: left')
+  //- .mdl-layout-spacer
+  span.typo-styles__demo.mdl-typography--display-3.mdl-badge Угадай мелодию
+  //- .mdl-layout-spacer
+  span.typo-styles__demo.mdl-typography--display-2.mdl-badge(data-bind='attr: {"data-badge":players()[0].score}, text: players()[0].title' style='float: right')
+
 table.mdl-data-table.mdl-js-data-table
   tbody(data-bind="foreach: groups")
     tr
@@ -6,6 +13,3 @@ table.mdl-data-table.mdl-js-data-table
       td(data-bind="component: {name: 'audio', params: $data }")
       // /ko
       td(data-bind="text: title")
-// ko foreach: players
-h5.mdl-badge(data-bind='attr: {"data-badge":score}, text: title')
-// /ko

@@ -1,49 +1,56 @@
 define([
-  'knockout',
-  'underscore',
-  'storage',
-  'constants',
-  'localization',
-  'amplify',
-  'socketio'
-], function (ko, _, storage, constants, localization, amplify, socketio) {
-  'use strict';
+    'knockout',
+    'underscore',
+    'storage',
+    'constants',
+    'localization',
+    'amplify',
+    'socketio'
+], function(ko, _, storage, constants, localization, amplify, socketio) {
+    'use strict';
 
-  var socket = socketio();
+    var socket = socketio();
 
-  return function (params) {
-    var melody = params || {};
-    var element = ko.observable();
+    return function(params) {
+        var melody = params || {};
+        var element = ko.observable();
+        var visible = ko.observable(!!melody._id);
 
-    initialize();
+        initialize();
 
-    function pauseCondition(_melody) {
-      // if (_melody._id == melody._id) {
-      element().pause();
-      // }
-    }
+        function pauseCondition(_melody) {
+            // if (_melody._id == melody._id) {
+            element().pause();
+            // }
+        }
 
 
-    function playCondition(_melody) {
-      if (_melody._id == melody._id) {
-        element().play();
-      }
-    }
+        function playCondition(_melody) {
+            if (_melody._id == melody._id) {
+                element().play();
+            }
+        }
 
-    function initialize() {
-      socket.on('play.melody', playCondition);
-      socket.on('pause.melody', pauseCondition);
-    }
 
-    function dispose() {
-    }
+        function hideCondition(_melody) {
+            if (_melody._id == melody._id) {
+                visible(false);
+            }
+        }
 
-    return {
-      mediaUrl: melody.url,
-      mediaType: melody.type,
-      score: melody.score,
-      element: element,
-      dispose: dispose
+        function initialize() {
+            socket.on('disable.melody', hideCondition);
+            socket.on('play.melody', playCondition);
+            socket.on('pause.melody', pauseCondition);
+        }
+
+        function dispose() {}
+
+        return {
+            visible: visible,
+            melody: melody,
+            element: element,
+            dispose: dispose
+        };
     };
-  };
 });

@@ -56,8 +56,10 @@ define([
             var score = currentMelody().score; // + bonus;
             //amplify.publish()
 
-            player(team()._id).score += score;
+            player(teamid).score += score;
             socket.emit('players.update', players);
+            socket.emit('disable.melody', currentMelody());
+
 
             hasMelody(false);
             hasAnswer(false);

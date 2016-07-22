@@ -110,6 +110,15 @@ module.exports = function() {
             io.emit('answer.alow', true);
         });
 
+        socket.on('disable.melody', function(melody) {
+            console.log('disable.melody: ', melody);
+            io.emit('disable.melody', melody);
+            io.emit('disable.melody', true);
+        });
+
+
+        
+
 
         socket.on('players.update', function(players) {
             console.log('players.update: ', players);

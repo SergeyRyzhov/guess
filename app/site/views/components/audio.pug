@@ -1,5 +1,7 @@
+// ko if: visible
 audio(data-bind="audio: element")
-  source(data-bind="attr: { src: mediaUrl, type: mediaType }")
+  source(data-bind="attr: { src: melody.url, type: melody.type }")
   |labels.game.errors.notSupported
-  a(data-bind="attr: { href: mediaUrl }") labels.game.audio.download
-button.mdl-button.mdl-js-button.mdl-button--fab.mdl-button--colored(data-bind="text: score") labels.game.audio.play
+  a(data-bind="attr: { href: melody.url }") labels.game.audio.download
+button.mdl-button.mdl-js-button.mdl-button--fab.mdl-button--colored(data-bind="text: melody.score") labels.game.audio.play
+// /ko
