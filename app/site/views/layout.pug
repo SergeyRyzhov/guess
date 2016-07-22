@@ -41,14 +41,15 @@ html(lang='en')
       z-index: 900;
       }
     block headerscripts
-  body(class=bodyclass)
-    .mdl-layout-container
-      .mdl-layout.mdl-js-layout.mdl-layout--fixed-header.has-drawer.is-upgraded
-        main.mdl-layout__content.mdl-grid
-            .mdl-layout-spacer
-            .mdl-cell.mdl-cell--10-col
-              block content
-            .mdl-layout-spacer
+  body(class=bodyclass)  
+    block content
+    //- .mdl-layout-container
+    //-   .mdl-layout.mdl-js-layout.mdl-layout--fixed-header.has-drawer.is-upgraded
+    //-     main.mdl-layout__content.mdl-grid
+    //-         .mdl-layout-spacer
+    //-         .mdl-cell.mdl-cell--10-col
+    //-           block content
+    //-         .mdl-layout-spacer
 
           
       //- header.mdl-layout__header

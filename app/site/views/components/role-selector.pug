@@ -1,7 +1,15 @@
-button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(data-bind="click: join.bind(null, 'team1'), text:team1Text")
-br
-button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(data-bind="click: join.bind(null, 'team2'), text:team2Text")
-br
-button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(data-bind="click: join.bind(null, 'manager'), text:managerText")
-br
-button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(data-bind="click: join.bind(null, 'view'), text:viewText")
+//- button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(data-bind="click: join.bind(null, 'team1'), text:team1Text")
+//- br
+//- button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(data-bind="click: join.bind(null, 'team2'), text:team2Text")
+//- br
+//- button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(data-bind="click: join.bind(null, 'manager'), text:managerText")
+//- br
+//- button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(data-bind="click: join.bind(null, 'view'), text:viewText")
+
+form(action="#")
+  fieldset.mdl-textfield.mdl-js-textfield
+    input.mdl-textfield__input(type="text", id="password", data-bind="textInput: password" )
+    label.mdl-textfield__label(for="password") Пароль
+//-   fieldset.mdl-textfield.mdl-js-textfield
+//-     input.mdl-textfield__input(type="text", id="name")
+//-     label.mdl-textfield__label(for="name") Имя
