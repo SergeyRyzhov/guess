@@ -1,43 +1,43 @@
 define([
-  'knockout',
-  'underscore',
-  'storage',
-  'constants',
-  'localization',
-  'amplify',
-  'json!/api/game',
-], function (ko, _, storage, constants, localization, amplify, game) {
-  'use strict';
+    'knockout',
+    'underscore',
+    'storage',
+    'constants',
+    'localization',
+    'amplify',
+    'json!/api/game',
+], function(ko, _, storage, constants, localization, amplify, game) {
+    'use strict';
 
-  return function (params) {
-    var nextComponent = 'game-player';
+    return function(params) {
+        var nextComponent = 'game-player';
 
-    var password = ko.observable('');
-    
-    var passSubscription = password.subscribe(join);
+        var password = ko.observable('');
 
-    function join(value) {
-      if (!value || value.length < 4)
-        return;  
+        var passSubscription = password.subscribe(join);
 
-      value == '2705' && params.view('game-mngr');
-      value == '0507' && params.view('game-view');
-      value == '2907' && params.view('game-player') || params.team(1);
-      value == '0512' && params.view('game-player') || params.team(1);
-    }
+        function join(value) {
+            if (!value || value.length < 4)
+                return;
 
-    function dispose(params) {
-      passSubscription.dispose();
-    }
+            value == '2705' && params.view('game-mngr');
+            value == '0507' && params.view('game-view');
+            value == '2907' && params.view('game-player') || params.team(1);
+            value == '0512' && params.view('game-player') || params.team(2);
+        }
 
-    return {
-      password:password,
-      // join: join,
-      // team1Text: params.players[0].title,
-      // team2Text: params.players[1].title,
-      // managerText: 'Ведущий',
-      // viewText: 'Наблюдатель',
-      dispose:dispose
+        function dispose(params) {
+            passSubscription.dispose();
+        }
+
+        return {
+            password: password,
+            // join: join,
+            // team1Text: params.players[0].title,
+            // team2Text: params.players[1].title,
+            // managerText: 'Ведущий',
+            // viewText: 'Наблюдатель',
+            dispose: dispose
+        };
     };
-  };
 });
