@@ -35,7 +35,11 @@ function init(router) {
         melodies =  [
           createMelody(21, 10, 'Лев Лещенко - Крутится вертится шар голубой', 'Lev Leshchenko - Krutitsya vertitsya shar goluboj'),
           createMelody(22, 20, 'Аида Ведищева - Песенка о медведях', 'Aida Vedishcheva - Pesenka o medvedyah'),
-          createMelody(23, 30, 'Леонид Утёсов - Утомлённое солнце', 'Leonid Utyosov - Utomlyonnoe solnce')
+          createMelody(23, 30, 'Леонид Утёсов - Утомлённое солнце', 'Leonid Utyosov - Utomlyonnoe solnce'),
+          createMelody(),
+          createMelody(),
+          createMelody(),
+          createMelody()
         ];
         break;
       }
@@ -43,13 +47,23 @@ function init(router) {
         melodies =  [
           createMelody(31, 10, 'Юрий Никулин - Песня про зайцев', 'YUrij Nikulin - Pesnya pro zajcev'),
           createMelody(32, 20, 'Браво - Валерий Сюткин - Чёрный кот', 'Bravo - Valerij Syutkin - CHyornyj kot'),
-          createMelody(33, 30, 'Наутилус Помпилиус - Одинокая птица', 'Nautilus Pompilius - Odinokaya ptitsa')
+          createMelody(33, 30, 'Наутилус Помпилиус - Одинокая птица', 'Nautilus Pompilius - Odinokaya ptitsa'),
+          createMelody(),
+          createMelody(),
+          createMelody(),
+          createMelody()
         ];
         break;
       }
       case 4: {
         melodies =  [
-          createMelody(41, 10, 'Пётр Лещенко - Ах эти чёрные глаза', 'PYotr Leschenko - Ah eti chYornyie glaza')
+          createMelody(41, 10, 'Пётр Лещенко - Ах эти чёрные глаза', 'PYotr Leschenko - Ah eti chYornyie glaza'),
+          createMelody(),
+          createMelody(),
+          createMelody(),
+          createMelody(),
+          createMelody(),
+          createMelody()
         ];
         break;
       }
@@ -59,20 +73,33 @@ function init(router) {
           createMelody(52, 20, 'Гимн Пионеров - Всегда будь готов', 'ah eta svadba'),
           createMelody(53, 30, 'Море, море, край бездонный', 'ah eta svadba'),
           createMelody(55, 50, 'Земля в иллюминаторе', 'ah eta svadba'),
-          createMelody(56, 60, 'Первым делом самолеты', 'ah eta svadba')
+          createMelody(56, 60, 'Первым делом самолеты', 'ah eta svadba'),
+          createMelody(),
+          createMelody()
         ];
         break;
       }
       case 6: {
         melodies =  [
           createMelody(61, 10, 'На заре', 'Leschenko - Black eyes.mp3'),
-          createMelody(62, 20, 'Ленинград - Экспонат', 'Leningrad - Exponat.mp3')
+          createMelody(62, 20, 'Ленинград - Экспонат', 'Leningrad - Exponat.mp3'),
+          createMelody(),
+          createMelody(),
+          createMelody(),
+          createMelody(),
+          createMelody()
         ];
         break;
       }
       case 7: {
         melodies =  [
-          createMelody(71, 10, 'Музыка из к/ф "Джентельмены Удачи"', 'Leschenko - Black eyes.mp3')
+          createMelody(71, 10, 'Музыка из к/ф "Джентельмены Удачи"', 'Leschenko - Black eyes.mp3'),
+          createMelody(),
+          createMelody(),
+          createMelody(),
+          createMelody(),
+          createMelody(),
+          createMelody()
         ];
         break;
       }
