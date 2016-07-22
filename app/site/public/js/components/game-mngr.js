@@ -51,9 +51,9 @@ define([
             return _.findWhere(players, { _id: id });
         }
 
-        function right(teamid) {
-            //bonus = bonus || 0;
-            var score = currentMelody().score; // + bonus;
+        function right(teamid, bonus) {
+            bonus = bonus || 0;
+            var score = currentMelody().score + bonus;
             //amplify.publish()
 
             player(teamid).score += score;
@@ -95,11 +95,11 @@ define([
             continuePlay: continuePlay,
             rightFirstText: ko.computed(function() {
                 var audio = currentMelody() || {};
-                return '+' + audio.score + ' ' + player(1).title;
+                return player(1).title + ' +' + audio.score;
             }),
             rightSecondText: ko.computed(function() {
                 var audio = currentMelody() || {};
-                return '+' + audio.score + ' ' + player(2).title;
+                return player(2).title + ' +' + audio.score;
             })
         }
     };
