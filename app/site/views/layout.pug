@@ -20,7 +20,7 @@ html(lang='en')
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&lang=en')
     link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
     link(rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.deep_orange-red.min.css")
-    link(rel='stylesheet', href='css/theme-styles.css')   
+    //- link(rel='stylesheet', href='css/theme-styles.css')   
     
     title= labels.site.title
     
@@ -29,46 +29,6 @@ html(lang='en')
     link(rel="icon", href="/img/favicon.ico", type="image/x-icon")
     link(rel="shortcut icon", href="/img/favicon.ico", type="image/x-icon")
     script(src="/vendor/js/material.js")
-
-    style.
-      #view-source {
-      position: fixed;
-      display: block;
-      right: 0;
-      bottom: 0;
-      margin-right: 40px;
-      margin-bottom: 40px;
-      z-index: 900;
-      }
     block headerscripts
-  body(class=bodyclass)  
+  body(class=bodyclass)
     block content
-    //- .mdl-layout-container
-    //-   .mdl-layout.mdl-js-layout.mdl-layout--fixed-header.has-drawer.is-upgraded
-    //-     main.mdl-layout__content.mdl-grid
-    //-         .mdl-layout-spacer
-    //-         .mdl-cell.mdl-cell--10-col
-    //-           block content
-    //-         .mdl-layout-spacer
-
-          
-      //- header.mdl-layout__header
-      //-   .mdl-layout__header-row
-      //-     span.mdl-layout-title.site-title= labels.site.title
-      //-     span.mdl-layout-title.site-short-title= labels.site.shortTitle
-      //-     .mdl-layout-spacer
-      //-     if user.isAuthenticated
-      //-       a.mdl-button.mdl-js-button.mdl-button--fab.mdl-button--mini-fab.mdl-js-ripple-effect.mdl-button--colored(href='#account')
-      //-         i.material-icons add
-      //-     - var langAttributes = {'data-bind': {component: {name: 'language-selector', params: labels.localization }}};
-      //-     div&attributes(langAttributes)
-      //-     // .mdl-textfield.mdl-js-textfield.mdl-textfield--expandable.mdl-textfield--floating-label.mdl-textfield--align-right
-      //-     //   label.mdl-button.mdl-js-button.mdl-button--icon(for='fixed-header-drawer-exp')
-      //-     //     i.material-icons search
-      //-     //   .mdl-textfield__expandable-holder
-      //-     //     input#fixed-header-drawer-exp.mdl-textfield__input(type='text', name='search', placeholder= labels.search.title)
-      //- .mdl-layout__drawer
-      //-   span.mdl-layout-title=labels.site.shortTitle
-      //-   - var menuAttributes = {'data-bind': {component: {name: 'menu', params: labels.menu }}};
-      //-   div&attributes(menuAttributes)
-        
