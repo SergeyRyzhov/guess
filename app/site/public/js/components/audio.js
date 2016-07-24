@@ -26,9 +26,13 @@ define([
 
 
         function stopCondition(_melody) {
+            var sound = element();
+            if (sound)
             // if (_melody._id == melody._id) {
-            sound.pause();
-            sound.currentTime = 0;
+            {
+                sound.pause();
+                sound.currentTime = 0;
+            }
             // }
         }
 
