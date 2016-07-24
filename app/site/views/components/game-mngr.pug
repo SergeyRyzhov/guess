@@ -23,4 +23,16 @@ div(data-bind="'if': hasAnswer")
       span(data-bind='text: rightSecondText() + " + бонус"')
     br
     center
-      button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect(data-bind='click: continuePlay.bind(null, 2)') Слушать дальше
+      button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect(data-bind='click: continuePlay') Слушать дальше
+div
+  .gs-actions
+    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(data-bind='click: add.bind(null, 1, 5), text: firstText() + "+5"')
+    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(data-bind='click: add.bind(null, 2, 5), text: secondText() + "+5"' style='float: right')
+    br
+    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(data-bind='click: add.bind(null, 1, -5), text: firstText() + "-5"')
+    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(data-bind='click: add.bind(null, 2, -5), text: secondText() + "-5"' style='float: right')
+    br
+    center
+      button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(data-bind='click: playCurrent') Play 
+      button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(data-bind='click: pauseAll') Pause
+      button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(data-bind='click: stopAll') Stop

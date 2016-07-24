@@ -116,17 +116,18 @@ module.exports = function() {
             io.emit('disable.melody', true);
         });
 
-
-        
-
-
         socket.on('players.update', function(players) {
             console.log('players.update: ', players);
             io.emit('players.update', players);
         });
 
+        socket.on('pause.all.melody', function() {
+            io.emit('pause.melody');
+        });
 
-
+        socket.on('stop.all.melody', function() {
+            io.emit('stop.melody');
+        });
 
         socket.on('answer', function(team) {
             console.log('answer: ', team);
