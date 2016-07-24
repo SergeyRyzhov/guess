@@ -25,6 +25,14 @@ define([
         }
 
 
+        function stopCondition(_melody) {
+            // if (_melody._id == melody._id) {
+            sound.pause();
+            sound.currentTime = 0;
+            // }
+        }
+
+
         function playCondition(_melody) {
             if (_melody._id == melody._id) {
                 element().play();
@@ -42,6 +50,7 @@ define([
             socket.on('disable.melody', hideCondition);
             socket.on('play.melody', playCondition);
             socket.on('pause.melody', pauseCondition);
+            socket.on('stop.melody', stopCondition);
         }
 
         function dispose() {}

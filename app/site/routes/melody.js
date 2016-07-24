@@ -15,6 +15,10 @@ function init(router) {
         };
     }
 
+    function createMelodyMock(i, score, name, fileName) {
+        return {};
+    }
+
     function createByCategory(id) {
         // console.log('id -- ', id);
         var melodies = [];
@@ -40,8 +44,8 @@ function init(router) {
                         createMelody(23, 30, 'Леонид Утёсов - Утомлённое солнце', 'Leonid Utyosov - Utomlyonnoe solnce'),
                         createMelody(24, 40, 'Кино / Виктор Цой - Звезда По Имени Солнце', 'Kino - Zvezda po imeni Solnce'),
                         createMelody(25, 40, 'Земфира - Бесконечность', 'Zemfira - Infinity'),
-                        createMelody(26, 70, 'mock', ''),
-                        createMelody(27, 70, 'mock', '')
+                        createMelodyMock(26, 70, 'mock', ''),
+                        createMelodyMock(27, 70, 'mock', '')
                     ];
                     break;
                 }
@@ -51,10 +55,10 @@ function init(router) {
                         createMelody(31, 10, 'Юрий Никулин - Песня про зайцев', 'YUrij Nikulin - Pesnya pro zajcev'),
                         createMelody(32, 20, 'Браво - Валерий Сюткин - Чёрный кот', 'Bravo - Valerij Syutkin - CHyornyj kot'),
                         createMelody(33, 30, 'Наутилус Помпилиус - Одинокая птица', 'Nautilus Pompilius - Odinokaya ptitsa'),
-                        createMelody(34, 70, 'mock', ''),
-                        createMelody(35, 70, 'mock', ''),
-                        createMelody(36, 70, 'mock', ''),
-                        createMelody(37, 70, 'mock', '')
+                        createMelodyMock(34, 70, 'mock', ''),
+                        createMelodyMock(35, 70, 'mock', ''),
+                        createMelodyMock(36, 70, 'mock', ''),
+                        createMelodyMock(37, 70, 'mock', '')
                     ];
                     break;
                 }
@@ -63,11 +67,11 @@ function init(router) {
                     melodies = [
                         createMelody(41, 10, 'Пётр Лещенко - Ах эти чёрные глаза', 'PYotr Leschenko - Ah eti chYornyie glaza'),
                         createMelody(42, 40, 'Иванушки International - Два океана', 'Ivanushki International - Dva okeana'),
-                        createMelody(43, 70, 'mock', ''),
-                        createMelody(44, 70, 'mock', ''),
-                        createMelody(45, 70, 'mock', ''),
-                        createMelody(46, 70, 'mock', ''),
-                        createMelody(47, 70, 'mock', '')
+                        createMelodyMock(43, 70, 'mock', ''),
+                        createMelodyMock(44, 70, 'mock', ''),
+                        createMelodyMock(45, 70, 'mock', ''),
+                        createMelodyMock(46, 70, 'mock', ''),
+                        createMelodyMock(47, 70, 'mock', '')
                     ];
                     break;
                 }
@@ -93,7 +97,7 @@ function init(router) {
                         createMelody(64, 40, 'Детские - Крылатые Качели', 'Detskie Krylatye Kacheli'),
                         createMelody(65, 50, 'Иванушки International - Снегири', 'Ivanushki International - Snegiri'),
                         createMelody(66, 60, 'Юрий Шатунов / Ласковый май Розовый вечер', 'YUrij SHatunov - Laskovyj maj Rozovyj vecher'),
-                        createMelody(67, 70, 'mock', '')
+                        createMelodyMock(67, 70, 'mock', '')
                     ];
                     break;
                 }
@@ -104,9 +108,9 @@ function init(router) {
                         createMelody(72, 20, 'Любэ - Берёзы', 'Lyubeh - Beryozy'),
                         createMelody(73, 20, 'ВИА Гра - Попытка № 5', 'VIA Gra - Popytka № 5'),
                         createMelody(74, 20, 'Песня Винни Пуха', 'Vini Puh'),
-                        createMelody(75, 20, 'mock', ''),
-                        createMelody(76, 20, 'mock', ''),
-                        createMelody(77, 20, 'mock', '')
+                        createMelodyMock(75, 20, 'mock', ''),
+                        createMelodyMock(76, 20, 'mock', ''),
+                        createMelodyMock(77, 20, 'mock', '')
                     ];
                     break;
                 }

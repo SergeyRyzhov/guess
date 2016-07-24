@@ -12,14 +12,6 @@ define([
 
     var socket = socketio();
 
-    // amplify.subscribe('pause.all.request', function () {
-    // 	socket.emit('pause', 'groupid');
-    // });
-
-    // socket.on('pause', function (groupid) {
-    // 	amplify.publish('pause.all.processed');
-    // });
-
     return function(params) {
         var players = params.players;
         var currentMelody = ko.observable();
@@ -43,8 +35,6 @@ define([
             } else
                 team(_team);
             hasAnswer(true);
-            /*hasMelody(true);
-            currentMelody(_currentMelody);*/
         });
 
         function player(id) {
@@ -54,7 +44,6 @@ define([
         function right(teamid, bonus) {
             bonus = bonus || 0;
             var score = currentMelody().score + bonus;
-            //amplify.publish()
 
             player(teamid).score += score;
             socket.emit('players.update', players);
@@ -85,6 +74,26 @@ define([
             }
         });
 
+        function add(teamid, score) {
+            player(teamid).score += score;
+            socket.emit('players.update', players);
+        }
+
+        function playCurrent() {
+
+            socket.emit('play.melody', currentMelody());
+        }
+
+        function pauseAll() {
+
+            socket.emit('pause.all.melody');
+        }
+
+        function stopAll() {
+
+            socket.emit('stop.all.melody');
+        }
+
         return {
             hasMelody: hasMelody,
             hasAnswer: hasAnswer,
@@ -100,7 +109,17 @@ define([
             rightSecondText: ko.computed(function() {
                 var audio = currentMelody() || {};
                 return player(2).title + ' +' + audio.score;
-            })
+            }),
+            firstText: ko.computed(function() {
+                return player(1).title;
+            }),
+            secondText: ko.computed(function() {
+                return player(2).title;
+            }),
+            add: add,
+            playCurrent: playCurrent,
+            pauseAll: pauseAll,
+            stopAll: stopAll
         }
     };
 });
