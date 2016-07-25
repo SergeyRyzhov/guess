@@ -9,3 +9,18 @@
     min-width: 15em;
     min-height: 15em;
 }
+
+body {
+    background: url(/img/logo.png) no-repeat #eee;
+    background-size: contain;
+    background-position: 50%;
+    /* color */
+}
+
+.mdl-data-table {
+    background-color: transparent !important;
+}
+
+.mdl-data-table tbody tr:hover {
+    background-color: transparent !important;
+}

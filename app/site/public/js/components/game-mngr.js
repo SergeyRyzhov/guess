@@ -18,6 +18,8 @@ define([
         var team = ko.observable();
         var hasMelody = ko.observable();
         var hasAnswer = ko.observable();
+        var advanced = ko.observable(false);
+
 
         socket.on('play.melody', function(_currentMelody) {
             hasMelody(true);
@@ -119,7 +121,8 @@ define([
             add: add,
             playCurrent: playCurrent,
             pauseAll: pauseAll,
-            stopAll: stopAll
+            stopAll: stopAll,
+            advanced:advanced
         }
     };
 });
