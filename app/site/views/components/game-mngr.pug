@@ -1,11 +1,11 @@
 table.mdl-data-table.mdl-js-data-table(data-bind="visible: !hasMelody()")
   tbody(data-bind="foreach: groups")
     tr
-      td(data-bind="text: title")
+      td.mdl-typography--title(data-bind="text: title")
       // ko foreach: melodies
       td(data-bind="component: {name: 'audio-control', params: $data }")
       // /ko
-      td(data-bind="text: title")
+      td.mdl-typography--title(data-bind="text: title")
 div(data-bind="'if': hasMelody")
   .gs-melody(data-bind="with: melody")
     center.typo-styles__demo.mdl-typography--display-2(data-bind="text: name")
@@ -14,8 +14,8 @@ div(data-bind="'if': hasAnswer")
     center.typo-styles__demo.mdl-typography--display-3(data-bind="text: title")
   .gs-actions
 
-    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(data-bind='click: right.bind(null, 1, 0), text: rightFirstText')
-    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(data-bind='click: right.bind(null, 2, 0), text: rightSecondText' style='float: right')
+    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(data-bind='click: right.bind(null, 1, 0), text: rightFirstText')
+    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(data-bind='click: right.bind(null, 2, 0), text: rightSecondText' style='float: right')
     br
     button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect(data-bind='click: right.bind(null, 1, 5)')
       span(data-bind='text: rightFirstText() + " + бонус"')
@@ -24,13 +24,16 @@ div(data-bind="'if': hasAnswer")
     br
     center
       button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect(data-bind='click: continuePlay') Слушать дальше
-div
+label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for="advanced")
+  input.mdl-checkbox__input( type="checkbox", id="advanced" data-bind="checked: advanced")
+  span.mdl-checkbox__label Дополнительно
+div(data-bind="visible:advanced")
   .gs-actions
-    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(data-bind='click: add.bind(null, 1, 5), text: firstText() + "+5"')
-    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(data-bind='click: add.bind(null, 2, 5), text: secondText() + "+5"' style='float: right')
+    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(data-bind='click: add.bind(null, 1, 5), text: firstText() + "+5"')
+    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(data-bind='click: add.bind(null, 2, 5), text: secondText() + "+5"' style='float: right')
     br
-    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(data-bind='click: add.bind(null, 1, -5), text: firstText() + "-5"')
-    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(data-bind='click: add.bind(null, 2, -5), text: secondText() + "-5"' style='float: right')
+    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(data-bind='click: add.bind(null, 1, -5), text: firstText() + "-5"')
+    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(data-bind='click: add.bind(null, 2, -5), text: secondText() + "-5"' style='float: right')
     br
     center
       button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored(data-bind='click: playCurrent') Play 

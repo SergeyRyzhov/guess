@@ -1,17 +1,36 @@
 div(style='text-align:center')
   // ko with: players()[0]
-  span.typo-styles__demo.mdl-typography--display-2.mdl-badge(data-bind='attr: {"data-badge": score}, text: title' style='float: left')
+  span.mdl-typography--display-2.mdl-badge(data-bind='attr: {"data-badge": score}, text: title' style='float: left')
   // /ko
-  span.typo-styles__demo.mdl-typography--display-3.mdl-badge Угадай мелодию
+  span.mdl-typography--display-3.mdl-badge Угадай мелодию
   // ko with: players()[1]
-  span.typo-styles__demo.mdl-typography--display-2.mdl-badge(data-bind='attr: {"data-badge": score}, text: title' style='float: right')
+  span.mdl-typography--display-2.mdl-badge(data-bind='attr: {"data-badge": score}, text: title' style='float: right')
   // /ko
 
-table.mdl-data-table.mdl-js-data-table
+table.mdl-data-table.mdl-js-data-table(data-bind="visible: !hasMelody()")
   tbody(data-bind="foreach: groups")
     tr
-      td(data-bind="text: title")
+      td.mdl-typography--headline(data-bind="text: title")
       // ko foreach: melodies
       td(data-bind="component: {name: 'audio', params: $data }")
       // /ko
-      td(data-bind="text: title")
+      //-td.mdl-typography--headline(data-bind="text: title")
+
+table.mdl-data-table.mdl-js-data-table(data-bind="'if': hasMelody" style="min-width: 1038px; background-color: #fff !important;")
+  tbody
+    tr
+      td(colspan="9")
+        .gs-melody(data-bind="with: melody")
+          center
+            .typo-styles__demo.mdl-typography--display-2 
+              span Борьба за 
+              span(data-bind="text: score")
+              span  очков
+    // ko 'if': hasAnswer 
+    tr
+      td.gs-team(colspan="9" data-bind="with: team")
+        center
+          .typo-styles__demo.mdl-typography--display-3
+            span Первыми среагировали 
+            span(data-bind="text: title")
+    // /ko

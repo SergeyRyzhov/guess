@@ -106,8 +106,8 @@ function init(router) {
                     melodies = [
                         createMelody(71, 10, 'Музыка из к/ф "Джентельмены Удачи"', 'Dzhentlmeny udachi'),
                         createMelody(72, 20, 'Любэ - Берёзы', 'Lyubeh - Beryozy'),
-                        createMelody(73, 20, 'ВИА Гра - Попытка № 5', 'VIA Gra - Popytka № 5'),
-                        createMelody(74, 20, 'Песня Винни Пуха', 'Vini Puh'),
+                        createMelody(73, 30, 'ВИА Гра - Попытка № 5', 'VIA Gra - Popytka № 5'),
+                        createMelody(74, 40, 'Песня Винни Пуха', 'Vini Puh'),
                         createMelodyMock(75, 20, 'mock', ''),
                         createMelodyMock(76, 20, 'mock', ''),
                         createMelodyMock(77, 20, 'mock', '')
