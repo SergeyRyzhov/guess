@@ -43,9 +43,9 @@ function init(router) {
                         createMelody(22, 20, 'Аида Ведищева - Песенка о медведях', 'Aida Vedishcheva - Pesenka o medvedyah'),
                         createMelody(23, 30, 'Леонид Утёсов - Утомлённое солнце', 'Leonid Utyosov - Utomlyonnoe solnce'),
                         createMelody(24, 40, 'Кино / Виктор Цой - Звезда По Имени Солнце', 'Kino - Zvezda po imeni Solnce'),
-                        createMelody(25, 40, 'Земфира - Бесконечность', 'Zemfira - Infinity'),
-                        createMelodyMock(26, 70, 'mock', ''),
-                        createMelodyMock(27, 70, 'mock', '')
+                        createMelody(25, 50, 'Земфира - Бесконечность', 'Zemfira - Infinity'),
+                        createMelody(26, 60, 'Поющие вместе - Солнечный круг', ''),
+                        createMelodyMock(27, 70, 'Земляне - Земля в иллюминаторе', '')
                     ];
                     break;
                 }
@@ -55,7 +55,7 @@ function init(router) {
                         createMelody(31, 10, 'Юрий Никулин - Песня про зайцев', 'YUrij Nikulin - Pesnya pro zajcev'),
                         createMelody(32, 20, 'Браво - Валерий Сюткин - Чёрный кот', 'Bravo - Valerij Syutkin - CHyornyj kot'),
                         createMelody(33, 30, 'Наутилус Помпилиус - Одинокая птица', 'Nautilus Pompilius - Odinokaya ptitsa'),
-                        createMelodyMock(34, 70, 'mock', ''),
+                        createMelodyMock(34, 40, 'Машина времени - Скворец', 'Skvorec'),
                         createMelodyMock(35, 70, 'mock', ''),
                         createMelodyMock(36, 70, 'mock', ''),
                         createMelodyMock(37, 70, 'mock', '')
