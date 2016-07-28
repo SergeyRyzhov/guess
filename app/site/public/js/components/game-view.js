@@ -15,7 +15,12 @@ define([
     // 	amplify.publish('pause.all.processed');
     // });
 
-    return function(params) {
+    return function (params) {
+        try {
+            window.document.body.classList.add('gs-view');
+        } catch (e) {
+            
+        }
         var players = ko.observable(params.players);
 
         var currentMelody = ko.observable();

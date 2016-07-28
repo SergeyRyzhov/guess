@@ -10,7 +10,7 @@
     min-height: 15em;
 }
 
-body {
+body.gs-view {
     background: url(/img/logo.png) no-repeat #eee;
     background-size: contain;
     background-position: 50%;
