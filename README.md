@@ -1,2 +1,2 @@
-# Node fishbone
-Skeleton for node application
+# Guess melody game
+Melodies... Teams... Game
