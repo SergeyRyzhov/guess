@@ -44,6 +44,16 @@ define([
         }
 
         function right(teamid, bonus) {
+            if (teamid == 7) {
+                socket.emit('players.update', players);
+                socket.emit('disable.melody', currentMelody());
+
+
+                hasMelody(false);
+                hasAnswer(false);
+                return;
+            }
+
             bonus = bonus || 0;
             var score = currentMelody().score + bonus;
 
@@ -122,7 +132,7 @@ define([
             playCurrent: playCurrent,
             pauseAll: pauseAll,
             stopAll: stopAll,
-            advanced:advanced
+            advanced: advanced
         }
     };
 });

@@ -8,10 +8,12 @@ table.mdl-data-table.mdl-js-data-table(data-bind="visible: !hasMelody()")
       td.mdl-typography--title(data-bind="text: title")
 div(data-bind="'if': hasMelody")
   .gs-melody(data-bind="with: melody")
-    center.typo-styles__demo.mdl-typography--display-2(data-bind="text: name")
+    center.mdl-typography--display-2(data-bind="text: name")
+  center
+    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect(data-bind='click: right.bind(null, 7)') Пропустить
 div(data-bind="'if': hasAnswer")
   .gs-team(data-bind="with: team")
-    center.typo-styles__demo.mdl-typography--display-3(data-bind="text: title")
+    center.mdl-typography--display-3(data-bind="text: title")
   .gs-actions
 
     button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(data-bind='click: right.bind(null, 1, 0), text: rightFirstText')
