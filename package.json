@@ -33,7 +33,7 @@
         "express-minify": "^0.1.7",
         "jsonwebtoken": "^5.7.0",
         "log4js": "^0.6.37",
-        "mongoose": "^4.5.2",
+        "mongoose": "^5.9.4",
         "morgan": "^1.6.1",
         "pug": "^2.0.0-beta3",
         "rand-token": "^0.2.1",
